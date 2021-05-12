@@ -7,7 +7,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (!isEnable) {
     return;
   }
-  window.showMessage(workspace.env.extensionRoot);
+  window.showMessage(workspace.cwd);
   const serverOptions = {
     command: langServerCommand, // run hls
   };
