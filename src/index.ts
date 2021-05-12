@@ -1,9 +1,10 @@
-import { ExtensionContext, services, workspace, LanguageClient } from 'coc.nvim';
+import { ExtensionContext, services, workspace, LanguageClient, window } from 'coc.nvim';
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration('coc-haiku');
   const isEnable = config.get<boolean>('enable', true);
   const langServerCommand = config.get<string>('langServerCommand', 'haiku-language-server');
+  window.showMessage(langServerCommand);
   if (!isEnable) {
     return;
   }
