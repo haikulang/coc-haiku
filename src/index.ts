@@ -4,10 +4,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration('coc-haiku');
   const isEnable = config.get<boolean>('enable', true);
   const langServerCommand = config.get<string>('langServerCommand', 'haiku-language-server');
-  window.showMessage(langServerCommand);
   if (!isEnable) {
     return;
   }
+  window.showMessage(workspace.env.extensionRoot);
   const serverOptions = {
     command: langServerCommand, // run hls
   };
